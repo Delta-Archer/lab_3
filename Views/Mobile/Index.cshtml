@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Lab_3.Models.Mobiles>
+@{
+    ViewBag.Title = "Мобільна техніка";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div>
+    <h3>Мобільні телефони</h3>
+    <td><p><a href="/Mobile/Create/">Додати телефон</a></p></td>
+    <table>
+        <tr class="header">
+            <td><p>Номер п/п</p></td>
+            <td><p>Компанія</p></td>
+            <td><p>Модель</p></td>
+            <td><p>Ціна, грн.</p></td>
+            <td></td>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Company.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Model)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td><p><a href="/Mobile/View/@item.Id">Перегляд</a></p></td>
+                <td><p><a href="/Mobile/Edit/@item.Id">Редагувати</a></p></td>
+                <td><p><a href="/Mobile/Delete/@item.Id">Видалити</a></p></td>
+            </tr>
+        }
+    </table>
+    <td><p><a href="/Home/Index/">Список замовлень</a></p></td>
+    <td><p><a href="/Company/Index/">Список компаній</a></p></td>
+</div>

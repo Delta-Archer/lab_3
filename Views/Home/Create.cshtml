@@ -1,0 +1,27 @@
+﻿@model Lab_3.Models.Purchases
+@{
+    ViewBag.Title = "Створити замовлення";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Нове замовлення</h2>
+@using (Html.BeginForm())
+{
+    <b>@Html.LabelFor(model => model.Person, "ПІП")</b>
+    <br />
+    @Html.EditorFor(model => model.Person)
+    <br /><br />
+    <b>@Html.LabelFor(model => model.PurchaseDate, "Дата замовлення")</b>
+    <br />
+    @Html.EditorFor(model => model.PurchaseDate)
+    <br /><br />
+    <b>@Html.LabelFor(model => model.MobileId, "Модель телефону")</b>
+    <br />
+    @Html.EditorFor(model => model.MobileId)
+    <br /><br />
+    <b>@Html.LabelFor(model => model.ShopId, "Номер салону")</b>
+    <br />
+    @Html.EditorFor(model => model.ShopId)
+    <br /><br />
+    <input type="submit" value="Додати" />
+}
+

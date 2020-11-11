@@ -1,0 +1,27 @@
+﻿@model Lab_3.Models.Mobiles
+@{
+    ViewBag.Title = "Новий телефон";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2> Новий мобільний телефон </h2>
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>Телефон</legend>
+        <p>
+            Марка та модель <br />
+            @Html.EditorFor(model => model.Model)
+        </p>
+        <p>
+            Ціна <br />
+            @Html.EditorFor(model => model.Price)
+        </p>
+        <p>
+            Салон <br />
+            @Html.DropDownListFor(model => model.CompanyId, ViewBag.Companies as SelectList)
+        </p>
+        <p>
+            <input type="submit" value="Добавити телефон" />
+        </p>
+    </fieldset>
+}

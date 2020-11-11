@@ -1,0 +1,29 @@
+﻿@using Lab_3.Models
+@model Companies
+@{
+    ViewBag.Title = "Компанія " + @Model.Name;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div>
+    <h4>Компанія @Model.Name</h4>
+    <hr />
+    <dl>
+        <dt>Назва</dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>Головний директор</dt>
+        <dd>
+            @Html.DisplayFor(model => model.CEO)
+        </dd>
+        <dt>Моделі</dt>
+        <dd>
+            <ul>
+                @foreach (Mobiles mobile in Model.Mobiles)
+                {
+                    <li>@mobile.Model (@mobile.Price &#8372)</li>
+                }
+            </ul>
+        </dd>
+    </dl>
+</div> 
