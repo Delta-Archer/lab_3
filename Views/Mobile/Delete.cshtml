@@ -1,32 +1,30 @@
-﻿@{
+﻿{
     ViewBag.Title = "Видалити замовлення";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@model Lab_3.Models.Purchases
+@model Lab_3.Models.Mobiles
 <h2>Видалення замовлення</h2>
 <dl>
     <dt><b>ПІП</b></dt>
     <dd>
-        @Html.DisplayFor(model => model.Person)
+        @Html.DisplayFor(model => model.Company.Name)
     </dd>
     <dt><b>Дата замовлення</b></dt>
     <dd>
-        @Html.DisplayFor(model => model.PurchaseDate)
+        @Html.DisplayFor(model => model.Model)
     </dd>
     <dt><b>Код телефону</b></dt>
     <dd>
-        @Html.DisplayFor(model => model.MobileId)
-    </dd>
-    <dt><b>Номер салону</b></dt>
-    <dd>
-        @Html.DisplayFor(model => model.ShopId)
+        @Html.DisplayFor(model => model.Price)
     </dd>
 </dl>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
+
     <div class="form-actions no-color">
-        <input type="submit" value="Видалити" class="btn btn-default" /> | @Html.ActionLink("Back to List", "Index")
+        <input type="submit" value="Видалити" class="btn btn-default" /> |
+        @Html.ActionLink("Back to List", "Index")
     </div>
 }

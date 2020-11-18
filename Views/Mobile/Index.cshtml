@@ -6,20 +6,22 @@
 <div>
     <h3>Мобільні телефони</h3>
     <td><p><a href="/Mobile/Create/">Додати телефон</a></p></td>
-    <table>
-        <tr class="header">
-            <td><p>Номер п/п</p></td>
-            <td><p>Компанія</p></td>
-            <td><p>Модель</p></td>
-            <td><p>Ціна, грн.</p></td>
-            <td></td>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Company.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th></th>
         </tr>
         @foreach (var item in Model)
         {
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Id)
-                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Company.Name)
                 </td>
